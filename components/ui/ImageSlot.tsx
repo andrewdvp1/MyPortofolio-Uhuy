@@ -3,7 +3,7 @@
 // Otomatis menampilkan petunjuk path jika string gambar masih kosong
 // ============================================================================
 import Image from "next/image";
-import { Image as ImageIcon } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 interface ImageSlotProps {
   src: string;
@@ -12,6 +12,10 @@ interface ImageSlotProps {
   className?: string;
   aspectClass?: string;
   darkPlaceholder?: boolean;
+  /** Tampilkan placeholder ringkas (tanpa teks alt) untuk slot kecil. */
+  compact?: boolean;
+  priority?: boolean;
+  sizes?: string;
 }
 
 export default function ImageSlot({
@@ -21,6 +25,9 @@ export default function ImageSlot({
   className = "",
   aspectClass = "aspect-square",
   darkPlaceholder = false,
+  compact = false,
+  priority = false,
+  sizes = "(min-width: 1024px) 50vw, 100vw",
 }: ImageSlotProps) {
   if (src && src.trim() !== "") {
     return (
@@ -29,7 +36,9 @@ export default function ImageSlot({
           src={src}
           alt={alt}
           fill
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          priority={priority}
+          sizes={sizes}
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
       </div>
     );
@@ -37,37 +46,42 @@ export default function ImageSlot({
 
   return (
     <div
-      className={`relative overflow-hidden flex flex-col items-center justify-center p-6 text-center border transition-colors duration-500 ${aspectClass} ${
+      className={`relative overflow-hidden flex flex-col items-center justify-center p-6 text-center ${aspectClass} ${
         darkPlaceholder
-          ? "bg-[#0F38C5]/60 border-white/20 text-white/80 hover:border-white/40"
-          : "bg-[#E6ECFA]/70 border-[#0A2568]/15 text-[#0A2568]/70 hover:border-[#1346E8]/40"
+          ? "bg-gradient-to-br from-white/[0.08] to-white/[0.02] text-white/70"
+          : "bg-gradient-to-br from-brand-50 via-white to-brand-100 text-ink/60"
       } ${className}`}
     >
-      {/* Pola Grid Halus di Latar Placeholder */}
+      {/* Pola titik halus */}
       <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity-[0.18] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
-          backgroundSize: "16px 16px",
+          backgroundSize: "18px 18px",
         }}
+      />
+      {/* Cahaya lembut */}
+      <div
+        className={`absolute -top-1/4 -right-1/4 w-3/4 h-3/4 rounded-full blur-3xl pointer-events-none ${
+          darkPlaceholder ? "bg-brand/30" : "bg-brand/15"
+        }`}
       />
       <div className="relative z-10 flex flex-col items-center max-w-xs">
         <div
-          className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 ${
-            darkPlaceholder ? "bg-white/10" : "bg-[#1346E8]/10 text-[#1346E8]"
+          className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-3 ring-1 ${
+            darkPlaceholder
+              ? "bg-white/10 ring-white/15"
+              : "bg-white text-brand ring-ink/5 shadow-sm"
           }`}
         >
           <ImageIcon className="w-5 h-5" />
         </div>
-        <p className="text-xs font-semibold uppercase tracking-wider mb-1">
-          Tempat Gambar
-        </p>
-        <p className="text-[11px] opacity-75 mb-2">{alt}</p>
+        {!compact && <p className="text-xs font-medium mb-2 opacity-80">{alt}</p>}
         <code
-          className={`text-[10px] font-mono px-2.5 py-1 rounded border ${
+          className={`text-[10px] font-mono px-2.5 py-1 rounded-full ring-1 ${
             darkPlaceholder
-              ? "bg-black/20 border-white/15 text-blue-100"
-              : "bg-white/80 border-[#0A2568]/10 text-[#1346E8]"
+              ? "bg-black/20 ring-white/10 text-brand-200"
+              : "bg-white/80 ring-ink/10 text-brand"
           }`}
         >
           {pathHint}
@@ -76,4 +90,3 @@ export default function ImageSlot({
     </div>
   );
 }
-

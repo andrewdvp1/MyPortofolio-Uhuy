@@ -3,38 +3,55 @@
 // Semua teks, tautan, dan path gambar halaman ada di file ini.
 // Ubah konten di sini — tidak perlu menyentuh komponen JSX.
 //
-// Catatan: properti `...Lines` berupa array; setiap item dirender
-// sebagai baris baru (dipisah <br />).
+// Catatan:
+// - Properti `...Lines` berupa array; setiap item dirender sebagai baris baru.
+// - Bungkus kata dengan *bintang* untuk menampilkan aksen huruf serif miring,
+//   contoh: "Akar yang *kuat.*"
 // ============================================================================
-import { Layout, Sparkles, Layers, type LucideIcon } from "lucide-react";
+import {
+  Layout,
+  Sparkles,
+  Layers,
+  Search,
+  PenTool,
+  Code2,
+  Rocket,
+  type LucideIcon,
+} from "lucide-react";
 
 // ----------------------------------------------------------------------------
 // INFO UMUM
 // ----------------------------------------------------------------------------
 export const SITE = {
-  name: "EdenDevs",
-  logoInitial: "E",
-  email: "hello@edendevs.site",
+  name: "UhuyDevs",
+  logo: "/logo2.png",
+  //logoInitial: "U",
+  email: "hello@uhuydevs.site",
+  location: "Solo, Indonesia",
   tagline: "Kode yang matang. Ruang untuk bertumbuh.",
-  copyright: "© 2026 EdenDevs Studio. Seluruh hak cipta dilindungi.",
+  copyright: "© 2026 UhuyDevs Studio. Seluruh hak cipta dilindungi.",
+  socials: [
+    { label: "LinkedIn", href: "#" },
+    { label: "Dribbble", href: "#" },
+    { label: "GitHub", href: "#" },
+    { label: "Instagram", href: "#" },
+  ],
 };
 
 // ----------------------------------------------------------------------------
 // KONFIGURASI PATH GAMBAR (Ganti string kosong "" dengan path gambar Anda)
-// Contoh: "/images/hero-terrarium.jpg"
+// Contoh: "/images/hero-terrarium.jpg" (simpan file di folder /public)
 // ----------------------------------------------------------------------------
 export const IMAGE_PATHS = {
-  heroImage: "", // TODO: Masukkan path gambar Hero (Terrarium tanaman di kanan atas)
+  heroImage: "", // TODO: Masukkan path gambar Hero (Terrarium tanaman)
   projects: {
     verdant: "", // TODO: Masukkan path gambar proyek utama "Verdant"
-    forma: "",   // TODO: Masukkan path gambar proyek "Forma"
-    orbit: "",   // TODO: Masukkan path gambar proyek "Orbit"
   },
   team: {
-    alex: "",    // TODO: Masukkan path foto anggota tim 1
-    jamie: "",   // TODO: Masukkan path foto anggota tim 2
-    sam: "",     // TODO: Masukkan path foto anggota tim 3
-    taylor: "",  // TODO: Masukkan path foto anggota tim 4
+    christ: "/dio.jpg", // TODO: Masukkan path foto anggota tim 1
+    andrew: "/andrew.jpg", // TODO: Masukkan path foto anggota tim 2
+    edric: "/edric2.jpg", // TODO: Masukkan path foto anggota tim 3
+    michael: "/mich.jpg", // TODO: Masukkan path foto anggota tim 4
   },
 };
 
@@ -51,48 +68,57 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Karya", href: "#work" },
   { label: "Studio", href: "#team" },
   { label: "Proses", href: "#process" },
+  { label: "FAQ", href: "#faq" },
 ];
-
-/** Tautan yang disorot di navbar desktop. */
-export const NAV_ACTIVE_HREF = "#services";
 
 export const NAV_CTA = {
-  desktop: "Tersedia untuk proyek baru",
-  mobile: "Mulai diskusi proyek",
+  label: "Mulai Proyek",
   href: "#contact",
 };
-
-export const FOOTER_LINKS: NavLink[] = [
-  { label: "Layanan", href: "#services" },
-  { label: "Karya", href: "#work" },
-  { label: "Studio", href: "#team" },
-  { label: "Kontak", href: "#contact" },
-];
 
 // ----------------------------------------------------------------------------
 // 1. HERO
 // ----------------------------------------------------------------------------
 export const HERO = {
-  eyebrow: "✦ Studio Produk Digital & Rekayasa Web",
-  titleLines: ["Ide cemerlang.", "Akar yang kuat.", "Digital lebih baik."],
+  badge: "Menerima 2 proyek baru · Kuartal IV 2026",
+  titleLines: ["Ide cemerlang.", "Akar yang *kuat.*", "Digital lebih *baik.*"],
   description:
-    "Kami adalah studio desain dan pengembangan perangkat lunak yang merancang situs web serta produk digital yang tenang, tangguh, dan berorientasi pada pertumbuhan jangka panjang bisnis Anda.",
+    "Studio desain dan rekayasa perangkat lunak yang merancang situs web serta produk digital yang tenang, tangguh, dan berorientasi pada pertumbuhan jangka panjang bisnis Anda.",
   primaryCta: { label: "Mulai proyek bersama", href: "#contact" },
-  secondaryCta: { label: "Lihat karya kami", href: "#work" },
+  secondaryCta: { label: "Lihat studi kasus", href: "#work" },
   image: {
     src: IMAGE_PATHS.heroImage,
     hint: "IMAGE_PATHS.heroImage",
     alt: "Terrarium kaca minimalis di atas podium batu",
-    badge: "Eden Studio · Sejak 2021",
-    caption: "Dirancang untuk bertahan lama",
-    counter: "01 / 04",
+    badge: "UhuyDevs · Sejak 2024",
   },
-  /** 4 poin pilar nilai di bawah hero. */
-  pillars: [
-    "Berakar pada kejelasan",
-    "Dirancang untuk manusia",
-    "Dibangun agar tangguh",
-    "Tumbuh dengan ketelitian",
+  /** Kartu mengambang di sekitar gambar hero. */
+  floatingCards: {
+    rating: { value: "4.9", label: "Rata-rata ulasan klien", reviews: "dari 40+ ulasan" },
+    metric: { value: "+142%", label: "Rata-rata kenaikan konversi" },
+  },
+  /** Statistik singkat di bawah CTA. */
+  stats: [
+    { value: "2", label: "Tahun pengalaman" },
+    { value: "10+", label: "Proyek diluncurkan" },
+    { value: "98%", label: "Klien kembali" },
+  ],
+};
+
+// ----------------------------------------------------------------------------
+// LOGO KLIEN (marquee di bawah hero)
+// ----------------------------------------------------------------------------
+export const CLIENTS = {
+  label: "Dipercaya oleh brand & startup yang sedang bertumbuh",
+  names: [
+    "Almamater Coffee",
+    "Smartfolks",
+    "Kopi Nyantai",
+    "NexaCore Technologies",
+    "Lumbung Rasa",
+    "Modern Photo",
+    "Terra Studio",
+    "Sabila Travel",
   ],
 };
 
@@ -109,17 +135,17 @@ export interface SectionIntro {
 // 2. LAYANAN
 // ----------------------------------------------------------------------------
 export const SERVICES_INTRO: SectionIntro = {
-  eyebrow: "01 / Layanan Kami",
-  titleLines: ["Dari sebatas benih ide", "menjadi produk nyata."],
+  eyebrow: "Layanan Kami",
+  titleLines: ["Dari sebatas benih ide", "menjadi *produk nyata.*"],
   description:
-    "Kami berkerja sama dengan para pendiri bisnis dan beberapa tim profesional sejak tahap perencanaan konsep hingga perilisan dengan memadukan desain strategis dengan kode yang bersih dan andal.",
+    "Kami bekerja sama dengan pendiri bisnis dan tim profesional sejak tahap perencanaan konsep hingga perilisan — memadukan desain strategis dengan kode yang bersih dan andal.",
 };
 
 export interface Service {
   number: string;
   title: string;
   description: string;
-  meta: string;
+  tags: string[];
   icon: LucideIcon;
 }
 
@@ -129,7 +155,7 @@ export const SERVICES: Service[] = [
     title: "Pengalaman Web",
     description:
       "Situs web bisnis dan platform identitas brand yang cepat, ekspresif, serta dirancang dengan alur cerita yang jernih dan kualitas teknis jangka panjang.",
-    meta: "Design System · Next.js · Animasi Interaktif",
+    tags: ["Design System", "Next.js", "Animasi Interaktif"],
     icon: Layout,
   },
   {
@@ -137,7 +163,7 @@ export const SERVICES: Service[] = [
     title: "Produk Digital",
     description:
       "Aplikasi web dan antarmuka pengguna (UI/UX) yang menyederhanakan alur kerja kompleks sehingga terasa mudah dan nyaman digunakan setiap hari.",
-    meta: "UI/UX Produk · Prototyping · Full-stack",
+    tags: ["UI/UX Produk", "Prototyping", "Full-stack"],
     icon: Sparkles,
   },
   {
@@ -145,98 +171,97 @@ export const SERVICES: Service[] = [
     title: "Fondasi Tangguh",
     description:
       "Arsitektur frontend yang skalabel, pustaka komponen yang aksesibel, serta optimalisasi performa tinggi untuk mendukung pertumbuhan bisnis Anda.",
-    meta: "TypeScript · Aksesibilitas · Skalabilitas",
+    tags: ["TypeScript", "Aksesibilitas", "Skalabilitas"],
     icon: Layers,
   },
 ];
 
 // ----------------------------------------------------------------------------
-// 3. KARYA / PORTOFOLIO
+// 3. KARYA / PORTOFOLIO (studi kasus utama)
 // ----------------------------------------------------------------------------
 export const WORK_INTRO: SectionIntro = {
-  eyebrow: "02 / Karya Pilihan",
-  titleLines: ["Ide yang diwujudkan."],
+  eyebrow: "Studi Kasus Pilihan",
+  titleLines: ["Ide yang *diwujudkan.*"],
   description:
-    "Kurasi kolaborasi terbaru kami mencakup pengembangan platform identitas brand, e-commerce modern, hingga perangkat lunak B2B.",
+    "Sekilas kolaborasi unggulan kami — dari strategi brand, perancangan pengalaman belanja, hingga rekayasa e-commerce berperforma tinggi.",
 };
 
-export interface Project {
+export interface FeaturedProject {
   title: string;
   description: string;
   tags: string[];
   image: string;
   imageHint: string;
   imageAlt: string;
-}
-
-export interface FeaturedProject extends Project {
-  /** Panel kiri kartu (presentasi brand). */
+  /** Detail singkat proyek (ditampilkan sebagai daftar meta). */
+  meta: { label: string; value: string }[];
+  /** Hasil terukur proyek. */
+  results: { value: string; label: string }[];
   brand: {
     wordmark: string;
     headlineLines: string[];
-    blurb: string;
   };
-  /** Konten mockup browser di panel kanan kartu. */
+  /** Konten mockup browser. */
   mockup: {
     domain: string;
     headline: string;
     blurb: string;
     cta: string;
   };
+  testimonial: {
+    quote: string;
+    author: string;
+    role: string;
+  };
+  link: { label: string; href: string };
 }
 
-/** Proyek utama — ditampilkan sebagai kartu lebar penuh. */
+/** Proyek utama — ditampilkan sebagai studi kasus lebar penuh. */
 export const FEATURED_PROJECT: FeaturedProject = {
   title: "Verdant — rumah bagi pecinta tanaman",
   description:
-    "Identitas visual, pengalaman belanja e-commerce kustom, dan sistem panduan perawatan tanaman.",
+    "Identitas visual, pengalaman belanja e-commerce kustom, dan sistem panduan perawatan tanaman interaktif untuk brand tanaman hias yang sedang berkembang pesat.",
   tags: ["Strategi Brand", "Desain UI/UX", "Next.js Commerce"],
   image: IMAGE_PATHS.projects.verdant,
   imageHint: "IMAGE_PATHS.projects.verdant",
   imageAlt: "Tampilan proyek e-commerce tanaman Verdant",
+  meta: [
+    { label: "Klien", value: "Verdant Co." },
+    { label: "Industri", value: "E-commerce" },
+    { label: "Durasi", value: "14 minggu" },
+    { label: "Tahun", value: "2025" },
+  ],
+  results: [
+    { value: "+142%", label: "Konversi checkout" },
+    { value: "0.8s", label: "Waktu muat (LCP)" },
+    { value: "3.2×", label: "Pelanggan berulang" },
+  ],
   brand: {
     wordmark: "verdant.",
     headlineLines: ["Lebih banyak hijau.", "Lebih terasa rumah."],
-    blurb:
-      "Platform e-commerce tanaman hias dengan panduan perawatan interaktif serta kurasi pot keramik artistik untuk ruang dalam.",
   },
   mockup: {
     domain: "verdant.co",
     headline: "Beri ruang untuk tumbuh.",
     blurb:
-      "Tanaman hias pilihan yang dirawat dengan sepenuh hati, dikirim langsung dari rumah kaca kami ke ruang tamu Anda.",
+      "Tanaman hias pilihan yang dirawat sepenuh hati, dikirim langsung dari rumah kaca kami ke ruang tamu Anda.",
     cta: "Jelajahi Koleksi",
   },
+  testimonial: {
+    quote:
+      "UhuyDevs tidak sekadar membangun toko online — mereka memahami cerita brand kami dan menerjemahkannya menjadi pengalaman yang membuat pelanggan betah berlama-lama.",
+    author: "Nadia Pratama",
+    role: "Founder, Verdant Co.",
+  },
+  link: { label: "Diskusikan proyek serupa", href: "#contact" },
 };
-
-/** Proyek lainnya — ditampilkan dalam grid 2 kolom. */
-export const PROJECTS: Project[] = [
-  {
-    title: "Forma — ruang dengan makna",
-    description:
-      "Portofolio editorial dan ruang pamer digital untuk biro arsitektur dan desain interior independen.",
-    tags: ["Arahan Seni", "Desain Web", "Headless CMS"],
-    image: IMAGE_PATHS.projects.forma,
-    imageHint: "IMAGE_PATHS.projects.forma",
-    imageAlt: "Pratinjau situs web arsitektur interior Forma",
-  },
-  {
-    title: "Orbit — cara kerja yang lebih tenang",
-    description:
-      "Antarmuka aplikasi dan design system untuk platform perencanaan serta pemantauan progres tim lintas waktu.",
-    tags: ["Desain Produk", "Design System", "React & TypeScript"],
-    image: IMAGE_PATHS.projects.orbit,
-    imageHint: "IMAGE_PATHS.projects.orbit",
-    imageAlt: "Pratinjau dashboard analitik proyek SaaS Orbit",
-  },
-];
 
 // ----------------------------------------------------------------------------
 // 4. TIM
 // ----------------------------------------------------------------------------
 export const TEAM_INTRO: SectionIntro = {
-  eyebrow: "03 / Siapa Kami",
-  titleLines: ["Empat talenta.", "Satu dedikasi karya."],
+  eyebrow: "Siapa Kami",
+  titleLines: ["Empat talenta.", "Satu *dedikasi* karya."],
   description:
     "Tanpa perantara berlapis. Anda berkolaborasi langsung dengan desainer dan engineer berpengalaman yang mengerjakan produk Anda setiap harinya.",
 };
@@ -256,32 +281,32 @@ export interface TeamMember {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Alex Morgan",
+    name: "Christ Adio",
     role: "Direktur Desain",
     bio: "Merancang sistem visual, kejelasan identitas brand, dan antarmuka yang tenang dengan pengalaman studio lebih dari satu dekade.",
-    image: IMAGE_PATHS.team.alex,
-    hint: "IMAGE_PATHS.team.alex",
+    image: IMAGE_PATHS.team.christ,
+    hint: "IMAGE_PATHS.team.christ",
   },
   {
-    name: "Jamie Park",
+    name: "Andrew Eden",
     role: "Lead Engineer",
     bio: "Membangun arsitektur frontend yang tangguh, integrasi API yang rapi, serta pengalaman web interaktif yang mulus.",
-    image: IMAGE_PATHS.team.jamie,
-    hint: "IMAGE_PATHS.team.jamie",
+    image: IMAGE_PATHS.team.andrew,
+    hint: "IMAGE_PATHS.team.andrew",
   },
   {
-    name: "Sam Rivera",
+    name: "Edric Christian",
     role: "Desainer Produk",
     bio: "Mengubah permasalahan produk yang rumit menjadi alur pengguna yang intuitif, prototipe interaktif, dan sistem yang berpusat pada manusia.",
-    image: IMAGE_PATHS.team.sam,
-    hint: "IMAGE_PATHS.team.sam",
+    image: IMAGE_PATHS.team.edric,
+    hint: "IMAGE_PATHS.team.edric",
   },
   {
-    name: "Taylor Reed",
+    name: "Michael Gunawan",
     role: "Creative Developer",
     bio: "Menjembatani desain dan rekayasa perangkat lunak melalui animasi yang luwes, mikro-interaksi, dan penyempurnaan performa.",
-    image: IMAGE_PATHS.team.taylor,
-    hint: "IMAGE_PATHS.team.taylor",
+    image: IMAGE_PATHS.team.michael,
+    hint: "IMAGE_PATHS.team.michael",
   },
 ];
 
@@ -289,8 +314,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
 // 5. PROSES
 // ----------------------------------------------------------------------------
 export const PROCESS_INTRO: SectionIntro = {
-  eyebrow: "04 / Cara Kami Bekerja",
-  titleLines: ["Langkah terarah.", "Progres transparan."],
+  eyebrow: "Cara Kami Bekerja",
+  titleLines: ["Langkah terarah.", "Progres *transparan.*"],
   description:
     "Karya terbaik lahir ketika setiap pihak memahami arah dan tahapan yang sedang berjalan. Proses kami tenang, terstruktur, dan mengutamakan komunikasi terbuka.",
 };
@@ -300,6 +325,8 @@ export interface ProcessStep {
   title: string;
   description: string;
   deliverable: string;
+  duration: string;
+  icon: LucideIcon;
 }
 
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -309,6 +336,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     description:
       "Kami mendengarkan dengan saksama, menyelaraskan tujuan bisnis, dan memetakan inti permasalahan sebelum membuat sketsa atau menulis baris kode.",
     deliverable: "Riset & Arah Strategi",
+    duration: "1–2 minggu",
+    icon: Search,
   },
   {
     step: "02",
@@ -316,6 +345,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     description:
       "Kami mengeksplorasi arah visual, memetakan perjalanan pengguna, dan menyusun prototipe interaktif yang dapat Anda uji sejak dini.",
     deliverable: "Arsitektur & Desain UI/UX",
+    duration: "2–4 minggu",
+    icon: PenTool,
   },
   {
     step: "03",
@@ -323,6 +354,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     description:
       "Kode TypeScript yang bersih, tata letak responsif, dan animasi halus dikerjakan secara transparan melalui iterasi mingguan yang terukur.",
     deliverable: "Pengembangan Produksi",
+    duration: "4–8 minggu",
+    icon: Code2,
   },
   {
     step: "04",
@@ -330,27 +363,66 @@ export const PROCESS_STEPS: ProcessStep[] = [
     description:
       "Kami meluncurkan produk dengan penuh keyakinan, memantau performa nyata di lapangan, dan mendampingi evolusi produk Anda ke depannya.",
     deliverable: "Peluncuran & Pemeliharaan",
+    duration: "Berkelanjutan",
+    icon: Rocket,
   },
 ];
 
 // ----------------------------------------------------------------------------
-// 6. KONTAK
+// 6. FAQ
+// ----------------------------------------------------------------------------
+export const FAQ_INTRO: SectionIntro = {
+  eyebrow: "Pertanyaan Umum",
+  titleLines: ["Hal yang sering", "*ditanyakan.*"],
+  description:
+    "Belum menemukan jawaban yang Anda cari? Kirimkan pesan dan kami akan menjelaskannya secara langsung.",
+};
+
+export const FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Berapa lama waktu pengerjaan sebuah proyek?",
+    answer:
+      "Website company profile umumnya selesai dalam 4–6 minggu, sedangkan produk digital atau aplikasi web berkisar 8–16 minggu tergantung kompleksitas fitur. Linimasa detail kami sampaikan setelah sesi discovery.",
+  },
+  {
+    question: "Bagaimana sistem pembayaran dan kontraknya?",
+    answer:
+      "Kami bekerja dengan kontrak tertulis dan pembayaran bertahap berdasarkan milestone (umumnya 40% – 30% – 30%), sehingga Anda selalu membayar untuk progres yang sudah terlihat.",
+  },
+  {
+    question: "Apakah kami mendapatkan akses penuh ke kode sumber?",
+    answer:
+      "Tentu. Seluruh kode sumber, aset desain, dan dokumentasi menjadi milik Anda sepenuhnya setelah proyek selesai, lengkap dengan sesi serah terima kepada tim internal.",
+  },
+  {
+    question: "Apakah tersedia dukungan setelah peluncuran?",
+    answer:
+      "Ya. Setiap proyek mencakup garansi perbaikan 30 hari, dan kami menyediakan paket pemeliharaan bulanan untuk pembaruan fitur, pemantauan performa, serta keamanan.",
+  },
+];
+
+// ----------------------------------------------------------------------------
+// 7. KONTAK
 // ----------------------------------------------------------------------------
 export const CONTACT = {
-  eyebrow: "05 / Hubungi Kami",
-  titleLines: ["Mari tumbuhkan", "sesuatu yang", "bernilai."],
+  eyebrow: "Hubungi Kami",
+  titleLines: ["Mari tumbuhkan", "sesuatu yang", "*bernilai.*"],
   description:
-    "Punya rencana proyek baru, atau ingin mendiskusikan langkah digital berikutnya? Ceritakan sedikit tentang apa yang sedang Anda bangun—kami membaca setiap pesan dan membalas dalam 1–2 hari kerja.",
-  emailLabel: "Lebih suka melalui email langsung?",
+    "Punya rencana proyek baru, atau ingin mendiskusikan langkah digital berikutnya? Ceritakan sedikit tentang apa yang sedang Anda bangun — kami membaca setiap pesan.",
+  emailLabel: "Email langsung",
+  highlights: [
+    { label: "Waktu respons", value: "1–2 hari kerja" },
+    { label: "Sesi konsultasi", value: "Gratis, 30 menit" },
+  ],
   form: {
     title: "Ceritakan tentang proyek Anda",
     subtitle:
       "Lengkapi informasi singkat di bawah ini dan tim kami akan segera menghubungi Anda.",
     fields: {
-      name: { label: "Nama Anda *", placeholder: "Budi Santoso" },
-      email: { label: "Alamat Email *", placeholder: "budi@perusahaan.com" },
+      name: { label: "Nama Anda", placeholder: "Budi Santoso" },
+      email: { label: "Alamat Email", placeholder: "budi@perusahaan.com" },
       company: {
-        label: "Nama Perusahaan / Organisasi",
+        label: "Perusahaan / Organisasi",
         placeholder: "PT Nusantara Digital (Opsional)",
       },
       service: {
@@ -368,17 +440,44 @@ export const CONTACT = {
           "Rp 5 Juta – Rp 15 Juta",
           "Rp 15 Juta – Rp 35 Juta",
           "Di atas Rp 35 Juta",
-          "Belum ditentukan / Diskusi dulu",
+          "Belum ditentukan",
         ],
       },
       details: {
-        label: "Detail Proyek *",
+        label: "Detail Proyek",
         placeholder:
           "Ceritakan tujuan proyek, target waktu peluncuran, serta gambaran fitur yang ingin Anda wujudkan...",
       },
     },
     submitLabel: "Kirim Pesan",
-    successMessage: "Pesan berhasil terkirim!",
+    successMessage: "Terima kasih! Pesan Anda berhasil terkirim.",
+    privacyNote: "Data Anda aman dan tidak akan dibagikan kepada pihak ketiga.",
   },
 };
 
+// ----------------------------------------------------------------------------
+// FOOTER
+// ----------------------------------------------------------------------------
+export const FOOTER = {
+  ctaLines: ["Siap membangun", "sesuatu yang *hebat?*"],
+  columns: [
+    {
+      title: "Navigasi",
+      links: [
+        { label: "Layanan", href: "#services" },
+        { label: "Karya", href: "#work" },
+        { label: "Studio", href: "#team" },
+        { label: "Proses", href: "#process" },
+      ],
+    },
+    {
+      title: "Layanan",
+      links: [
+        { label: "Pengalaman Web", href: "#services" },
+        { label: "Produk Digital", href: "#services" },
+        { label: "Design System", href: "#services" },
+        { label: "Konsultasi", href: "#contact" },
+      ],
+    },
+  ],
+};
