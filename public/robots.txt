@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://my-portofolio-uhuy.vercel.app/sitemap.xml
+
