@@ -43,7 +43,7 @@ export const SITE = {
 // Contoh: "/images/hero-terrarium.jpg" (simpan file di folder /public)
 // ----------------------------------------------------------------------------
 export const IMAGE_PATHS = {
-  heroImage: "screen.png", // TODO: Masukkan path gambar Hero (Terrarium tanaman)
+  heroImage: "screen2.png", // TODO: Masukkan path gambar Hero (Terrarium tanaman)
   projects: {
     verdant: "verdant.png", // TODO: Masukkan path gambar proyek utama "Verdant"
   },
