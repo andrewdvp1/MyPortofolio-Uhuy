@@ -67,13 +67,13 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: SITE_URL,
     siteName: SITE.name,
-    title: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+    title: "UhuyDevs — Studio Desain | Rekayasa Produk Digital",
     description:
       "Studio desain dan pengembangan produk digital serta pengalaman web yang dirancang untuk bertumbuh.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+    title: "UhuyDevs — Studio Desain | Rekayasa Produk Digital",
     description:
       "Studio desain dan pengembangan produk digital serta pengalaman web yang dirancang untuk bertumbuh.",
   },
@@ -137,7 +137,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+      name: "UhuyDevs — Studio Desain | Rekayasa Produk Digital",
       isPartOf: {
         "@id": `${SITE_URL}/#website`,
       },
@@ -151,7 +151,7 @@ const jsonLd = {
         contentUrl: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        caption: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+        caption: "UhuyDevs — Studio Desain | Rekayasa Produk Digital",
       },
       image: {
         "@id": `${SITE_URL}/#primaryimage`,
