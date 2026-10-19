@@ -43,9 +43,9 @@ export const SITE = {
 // Contoh: "/images/hero-terrarium.jpg" (simpan file di folder /public)
 // ----------------------------------------------------------------------------
 export const IMAGE_PATHS = {
-  heroImage: "", // TODO: Masukkan path gambar Hero (Terrarium tanaman)
+  heroImage: "screen.png", // TODO: Masukkan path gambar Hero (Terrarium tanaman)
   projects: {
-    verdant: "", // TODO: Masukkan path gambar proyek utama "Verdant"
+    verdant: "verdant.png", // TODO: Masukkan path gambar proyek utama "Verdant"
   },
   team: {
     christ: "/dio.jpg", // TODO: Masukkan path foto anggota tim 1
@@ -89,7 +89,7 @@ export const HERO = {
   image: {
     src: IMAGE_PATHS.heroImage,
     hint: "IMAGE_PATHS.heroImage",
-    alt: "Terrarium kaca minimalis di atas podium batu",
+    alt: "Project Culina Aplikasi Pesan Otomatis",
     badge: "UhuyDevs · Sejak 2024",
   },
   /** Kartu mengambang di sekitar gambar hero. */
