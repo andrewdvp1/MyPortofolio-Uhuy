@@ -80,6 +80,9 @@ export const metadata: Metadata = {
   verification: {
     google: "googled5250cf312e6ed22",
   },
+  other: {
+    thumbnail: `${SITE_URL}/opengraph-image`,
+  },
   icons: {
     icon: "/logo2.png",
     apple: "/logo2.png",

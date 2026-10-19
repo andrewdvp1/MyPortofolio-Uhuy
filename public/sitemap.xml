@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
   <url>
     <loc>https://my-portofolio-uhuy.vercel.app/</loc>
     <lastmod>2025-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://my-portofolio-uhuy.vercel.app/opengraph-image</image:loc>
+      <image:title>UhuyDevs — Studio Desain &amp; Rekayasa Produk Digital</image:title>
+      <image:caption>Studio desain dan rekayasa perangkat lunak di Solo, Indonesia yang merancang situs web bisnis, aplikasi web, dan produk digital.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://my-portofolio-uhuy.vercel.app/logo2.png</image:loc>
+      <image:title>Logo UhuyDevs Studio</image:title>
+    </image:image>
   </url>
 </urlset>
-
