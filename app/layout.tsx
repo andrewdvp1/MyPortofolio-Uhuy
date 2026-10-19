@@ -28,11 +28,11 @@ const SITE_URL = "https://my-portofolio-uhuy.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+    default: "UhuyDevs — Studio Desain | Rekayasa Produk Digital",
     template: "%s | UhuyDevs",
   },
   description:
-    "Studio desain dan rekayasa perangkat lunak di Solo, Indonesia yang merancang situs web bisnis, aplikasi web, dan produk digital berperforma tinggi untuk pertumbuhan jangka panjang.",
+    "Studio desain dan rekayasa perangkat lunak di Solo, Indonesia. Merancang situs web bisnis, aplikasi web, dan produk digital. Performa tinggi untuk pertumbuhan jangka panjang.",
   keywords: [
     "UhuyDevs",
     "UhuyDevs Studio",
@@ -70,21 +70,12 @@ export const metadata: Metadata = {
     title: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
     description:
       "Studio desain dan pengembangan produk digital serta pengalaman web yang dirancang untuk bertumbuh.",
-    images: [
-      {
-        url: "/logo2.png",
-        width: 800,
-        height: 600,
-        alt: "UhuyDevs Studio Logo",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
     description:
       "Studio desain dan pengembangan produk digital serta pengalaman web yang dirancang untuk bertumbuh.",
-    images: ["/logo2.png"],
   },
   verification: {
     google: "googled5250cf312e6ed22",
@@ -104,7 +95,7 @@ const jsonLd = {
       name: SITE.name,
       url: SITE_URL,
       logo: `${SITE_URL}${SITE.logo}`,
-      image: `${SITE_URL}${SITE.logo}`,
+      image: `${SITE_URL}/opengraph-image`,
       email: SITE.email,
       description:
         "Studio desain dan rekayasa perangkat lunak yang merancang situs web serta produk digital yang tenang, tangguh, dan berorientasi pada pertumbuhan jangka panjang bisnis Anda.",
@@ -139,6 +130,31 @@ const jsonLd = {
       description: SITE.tagline,
       publisher: {
         "@id": `${SITE_URL}/#organization`,
+      },
+      inLanguage: "id-ID",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+      isPartOf: {
+        "@id": `${SITE_URL}/#website`,
+      },
+      about: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#primaryimage`,
+        url: `${SITE_URL}/opengraph-image`,
+        contentUrl: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        caption: "UhuyDevs — Studio Desain & Rekayasa Produk Digital",
+      },
+      image: {
+        "@id": `${SITE_URL}/#primaryimage`,
       },
       inLanguage: "id-ID",
     },
