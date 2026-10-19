@@ -83,7 +83,7 @@ export const HERO = {
   badge: "Menerima 2 proyek baru · Kuartal IV 2026",
   titleLines: ["Ide cemerlang.", "Akar yang *kuat.*", "Digital lebih *baik.*"],
   description:
-    "Studio desain dan rekayasa perangkat lunak yang merancang situs web serta produk digital yang tenang, tangguh, dan berorientasi pada pertumbuhan jangka panjang bisnis Anda.",
+    "Studio desain dan rekayasa perangkat lunak yang merancang situs web. Serta produk digital yang tenang, tangguh, dan berorientasi pada pertumbuhan jangka panjang bisnis.",
   primaryCta: { label: "Mulai proyek bersama", href: "#contact" },
   secondaryCta: { label: "Lihat studi kasus", href: "#work" },
   image: {
