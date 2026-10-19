@@ -90,6 +90,7 @@ export default async function Image() {
           >
             <div
               style={{
+                display: "flex",
                 width: "10px",
                 height: "10px",
                 borderRadius: "999px",
@@ -172,6 +173,7 @@ export default async function Image() {
 
             <p
               style={{
+                display: "flex",
                 fontSize: "21px",
                 lineHeight: 1.45,
                 color: "rgba(11, 21, 51, 0.68)",
@@ -220,6 +222,9 @@ export default async function Image() {
               </span>
               <div
                 style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
                   backgroundColor: "#2448f5",
                   color: "#ffffff",
                   padding: "4px 12px",
@@ -228,12 +233,21 @@ export default async function Image() {
                   fontWeight: 700,
                 }}
               >
-                ★ {HERO.floatingCards.rating.value}/5.0
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="#fbbf24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <span>{`${HERO.floatingCards.rating.value}/5.0`}</span>
               </div>
             </div>
 
             <div
               style={{
+                display: "flex",
                 fontSize: "52px",
                 fontWeight: 800,
                 letterSpacing: "-0.03em",
@@ -245,6 +259,7 @@ export default async function Image() {
             </div>
             <div
               style={{
+                display: "flex",
                 fontSize: "15px",
                 color: "rgba(255, 255, 255, 0.65)",
                 marginTop: "8px",
@@ -268,6 +283,7 @@ export default async function Image() {
                   <span
                     key={tag}
                     style={{
+                      display: "flex",
                       fontSize: "12px",
                       fontWeight: 600,
                       backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -340,4 +356,3 @@ export default async function Image() {
     }
   );
 }
-
